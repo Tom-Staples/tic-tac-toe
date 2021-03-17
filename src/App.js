@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import Game from './Game/Game';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='mainWrapper'>
+      <Container
+        style={{
+          padding: '10px',
+          border: 'solid black 3px',
+          margin: '10px auto 0px auto',
+          backgroundColor: '#add8e6'
+        }}
+      >
+        <h1 style={{ textAlign: 'center' }}>Tic-Tac-Toe</h1>
+      </Container>
+      <Game />
     </div>
   );
-}
+};
 
 export default App;
