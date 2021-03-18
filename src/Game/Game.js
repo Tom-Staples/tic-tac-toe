@@ -40,10 +40,6 @@ const Game = e => {
   //Resets the board and changes the starting player to the opposite
   const resetBoard = func => {
     func(false);
-    setScore({
-      X: 0,
-      O: 0
-    });
     setTurn(() => {
       if (moves % 2 === 0) {
         return turn === 'X' ? 'O' : 'X';
@@ -66,12 +62,12 @@ const Game = e => {
     e.target.innerHTML = turn;
     let actMoves = moves + 1;
     setMoves(actMoves);
-    setScore({
-      ...score,
-      [turn]: score[turn] + parseInt(e.target.id)
-    });
     if (condition(e)) {
       setGameWon(true);
+      setScore({
+        ...score,
+        [turn]: score[turn] + 1
+      });
       setTimeout(resetBoard, 2000, setGameWon);
     } else if (actMoves === 9) {
       setGameDrawn(true);
